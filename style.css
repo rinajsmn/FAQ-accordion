@@ -1,0 +1,146 @@
+@font-face {
+    font-family: 'WorkSans';
+    src: url(/faq-accordion-main/assets/fonts/WorkSans-VariableFont_wght.ttf);
+}
+
+
+:root{
+    --white: hsl(0, 0%, 100%);
+    --light-pink: hsl(275, 100%, 97%);
+    --purple: hsl(291, 59%, 56%);
+    --grayish-purple: hsl(292, 16%, 49%);
+    --dark-purple: hsl(292, 42%, 14%);
+    --ans: 0.7rem;
+    --q: 0.8rem;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 'WorkSans';
+    height: 100vh;
+    background-color: var(--light-pink);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bg-img{
+    top: 0;
+    width: 100%;
+    min-height: 35%;
+    background: url(/faq-accordion-main/assets/images/background-pattern-desktop.svg) no-repeat center center;
+    background-size: cover;
+    position: fixed;
+    z-index: -1;
+}
+
+.container{
+    margin: auto;
+    background: var(--white);
+    max-width: 450px;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 7px 0 20px 7px hsla(292, 42%, 14%, 0.3);
+}
+
+.faq-header{
+    display: flex;
+    align-items: center;
+    padding: 25px;
+    gap: 15px;
+}
+
+.faq-header img{
+    height: 25px;
+}
+
+.faq-header h1{
+    color: var(--dark-purple);
+    font-size: 2.5rem;
+}
+
+.faq-questions{
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 25px;
+}
+.question-box{
+    border-bottom: 1px solid var(--light-pink);
+}
+#question{
+    font-size: var(--q);
+    font-weight: 700;
+    color: var(--dark-purple);
+    padding: 30px 0;
+    text-align: left;
+    display: flex;
+}
+.plus,
+.minus{
+    height: 25px;
+    margin-left: 10%;
+    right: 50px;
+    cursor: pointer;
+    transition: all 0.2s linear;
+}
+.minus{
+    display: none;
+}
+
+.active .minus{
+    display: initial;
+}
+
+.active .plus{
+    display: none;
+}
+.question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+#question{
+    transition: color 0.2s linear;
+}
+
+#question:hover{
+    color: var(--purple);
+    cursor: pointer;
+}
+
+.answer{
+    opacity: 0;    
+    max-height: 0;
+    text-align: left;
+    color: var(--grayish-purple);
+    padding: 0 10px;
+    font-size: var(--ans);
+    transition: all 0.3s ease 0.15s;
+    overflow: hidden;
+}
+
+.answer.active{
+    opacity: 1;
+    max-height: 100%;
+    transition: all 0.2s ease 0.15s;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+    .bg-img{
+        background: url(/faq-accordion-main/assets/images/background-pattern-mobile.svg);
+    }
+    body {
+        height: 100%;
+    }
+    
+    .container{
+        margin: 20px 10px;
+        width:80%;
+    }
+}
